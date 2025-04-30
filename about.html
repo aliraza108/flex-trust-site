@@ -165,44 +165,93 @@
                     </div>
                 </div>
     
-                <!-- Contact Form Section -->
-                <div class="col-lg-6 quote-form" data-parallax="scroll" data-image-src="img/carousel-2.jpg">
-                    <div class="h-100 px-4 px-sm-5 pe-lg-0 wow fadeIn" data-wow-delay="0.5s">
-                        <div class="bg-white p-4 p-sm-5">
-                            <div class="row g-3">
-                                <div class="col-sm-6">
-                                    <div class="form-floating">
-                                        <input type="text" class="form-control" id="gname" placeholder="Guardian Name">
-                                        <label for="gname">Your Name</label>
-                                    </div>
-                                </div>
-                                <div class="col-sm-6">
-                                    <div class="form-floating">
-                                        <input type="email" class="form-control" id="gmail" placeholder="Guardian Email">
-                                        <label for="gmail">Your Email</label>
-                                    </div>
-                                </div>
-                                <div class="col-sm-6">
-                                    <div class="form-floating">
-                                        <input type="text" class="form-control" id="cname" placeholder="Child Name">
-                                        <label for="cname">Your Mobile</label>
-                                    </div>
-                                </div>
-     
-                                </div>
-                                <div class="col-12">
-                                    <div class="form-floating">
-                                        <textarea class="form-control" placeholder="Leave a message here" id="message" style="height: 80px"></textarea>
-                                        <label for="message">Message</label>
-                                    </div>
-                                </div>
-                                <div class="col-12">
-                                    <button class="btn btn-primary py-3 px-5" type="submit">Send my FAQ</button>
-                                </div>
-                            </div>
+               <!-- Contact Form Section -->
+<div class="col-lg-6 quote-form" data-parallax="scroll" data-image-src="img/carousel-2.jpg">
+    <div class="h-100 px-4 px-sm-5 pe-lg-0 wow fadeIn" data-wow-delay="0.5s">
+        <div class="bg-white p-4 p-sm-5">
+            <form id="faqForm" action="javascript:void(0)">
+                <div class="row g-3">
+                    <div class="col-sm-6">
+                        <div class="form-floating">
+                            <input type="text" class="form-control" id="gname" placeholder="Guardian Name">
+                            <label for="gname">Your Name</label>
                         </div>
                     </div>
-                </div> <!-- End Form -->
+                    <div class="col-sm-6">
+                        <div class="form-floating">
+                            <input type="email" class="form-control" id="gmail" placeholder="Guardian Email">
+                            <label for="gmail">Your Email</label>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="form-floating">
+                            <input type="text" class="form-control" id="cname" placeholder="Child Name">
+                            <label for="cname">Your Mobile</label>
+                        </div>
+                    </div>
+                    <div class="col-12">
+                        <div class="form-floating">
+                            <textarea class="form-control" placeholder="Leave a message here" id="message" style="height: 80px"></textarea>
+                            <label for="message">Message</label>
+                        </div>
+                    </div>
+                    <div class="col-12">
+                        <button class="btn btn-primary py-3 px-5" type="submit" id="faqSubmitButton">Send my FAQ</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<script>
+    document.getElementById('faqSubmitButton').addEventListener('click', function(event) {
+        event.preventDefault();
+    
+        // Get form values
+        const name = document.getElementById('gname').value;
+        const email = document.getElementById('gmail').value;
+        const mobile = document.getElementById('cname').value;
+        const message = document.getElementById('message').value;
+    
+        // Basic validation
+        if (!name || !email || !mobile || !message) {
+            alert("Please fill in all fields.");
+            return;
+        }
+    
+        // Prepare data in SheetDB format (field names must match column headers in your Sheet)
+        const data = {
+            data: {
+                name: name,
+                email: email,
+                mobile: mobile,
+                message: message
+            }
+        };
+    
+        // Send POST request to SheetDB
+        fetch("https://sheetdb.io/api/v1/t57pqlkis4dip", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(data)
+        })
+        .then(response => response.json())
+        .then(result => {
+            console.log("Success:", result);
+            alert("Your message has been sent successfully!");
+            document.getElementById('faqForm').reset();
+        })
+        .catch(error => {
+            console.error("Error:", error);
+            alert("There was an error. Please try again.");
+        });
+    });
+    </script>
+    
+
             </div>
         </div>
     </div>

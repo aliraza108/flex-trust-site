@@ -237,81 +237,124 @@
     
     
                 <!-- Application Form Section -->
-                <div class="col-lg-6 quote-form" data-parallax="scroll" data-image-src="img/carousel-2.jpg">
-                    <div class="h-100 px-4 px-sm-5 pe-lg-0 wow fadeIn" data-wow-delay="0.5s">
-                        <div class="bg-white p-4 p-sm-5">
-                            <form>
-                                <div class="row g-3">
-    
-                                    <div class="col-sm-6">
-                                        <div class="form-floating">
-                                            <input type="text" class="form-control" id="fullname" placeholder="Full Name" required>
-                                            <label for="fullname">Full Name</label>
-                                        </div>
-                                    </div>
-    
-                                    <div class="col-sm-6">
-                                        <div class="form-floating">
-                                            <input type="number" class="form-control" id="cnic" placeholder="CNIC Number" required 
-                                                   oninput="this.value = this.value.replace(/[^0-9]/g, '')">
-                                            <label for="cnic">CNIC Number</label>
-                                        </div>
-                                    </div>
-    
-                                    <div class="col-sm-6">
-                                        <div class="form-floating">
-                                            <input type="number" class="form-control" id="phone" placeholder="Phone Number" required 
-                                                   oninput="this.value = this.value.replace(/[^0-9]/g, '')">
-                                            <label for="phone">Phone Number</label>
-                                        </div>
-                                    </div>
-    
-                                    <div class="col-sm-6">
-                                        <div class="form-floating">
-                                            <input type="email" class="form-control" id="email" placeholder="Email Address" required>
-                                            <label for="email">Email Address</label>
-                                        </div>
-                                    </div>
-    
-                                    <div class="col-12">
-                                        <div class="form-floating">
-                                            <select class="form-select" id="position" required>
-                                                <option value="" disabled selected>-- Select a Position --</option>
-                                                <option value="Accountant">Accountant</option>
-                                                <option value="Relationship Officer">Relationship Officer</option>
-                                                <option value="Admin Officer">Admin Officer</option>
-                                                <option value="Office Boy">Office Boy</option>
-                                            </select>
-                                            <label for="position">Position Applying For</label>
-                                        </div>
-                                    </div>
-    
-                                    <div class="col-12">
-                                        <label class="form-label">Upload CV (PDF or DOC only)</label>
-                                        <input type="file" class="form-control" id="cv" accept=".pdf,.doc,.docx" required>
-                                    </div>
-    
-                                    <div class="col-12">
-                                        <label class="form-label">Upload Documents (optional)</label>
-                                        <input type="file" class="form-control" id="documents" multiple>
-                                    </div>
-    
-                                    <div class="col-12">
-                                        <div class="form-floating">
-                                            <textarea class="form-control" placeholder="Why do you want to join FlexTrust?" id="why" style="height: 80px" required></textarea>
-                                            <label for="why">Why do you want to join FlexTrust?</label>
-                                        </div>
-                                    </div>
-    
-                                    <div class="col-12">
-                                        <button class="btn btn-primary py-3 px-5" type="submit">Submit Application</button>
-                                    </div>
-    
-                                </div>
-                            </form>
+<div class="col-lg-6 quote-form" data-parallax="scroll" data-image-src="img/carousel-2.jpg">
+    <div class="h-100 px-4 px-sm-5 pe-lg-0 wow fadeIn" data-wow-delay="0.5s">
+        <div class="bg-white p-4 p-sm-5">
+            <form id="jobForm">
+                <div class="row g-3">
+
+                    <div class="col-sm-6">
+                        <div class="form-floating">
+                            <input type="text" class="form-control" id="fullname" placeholder="Full Name" required>
+                            <label for="fullname">Full Name</label>
                         </div>
                     </div>
-                </div> <!-- End Form -->
+
+                    <div class="col-sm-6">
+                        <div class="form-floating">
+                            <input type="number" class="form-control" id="cnic" placeholder="CNIC Number" required 
+                                   oninput="this.value = this.value.replace(/[^0-9]/g, '')">
+                            <label for="cnic">CNIC Number</label>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-6">
+                        <div class="form-floating">
+                            <input type="number" class="form-control" id="phone" placeholder="Phone Number" required 
+                                   oninput="this.value = this.value.replace(/[^0-9]/g, '')">
+                            <label for="phone">Phone Number</label>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-6">
+                        <div class="form-floating">
+                            <input type="email" class="form-control" id="email" placeholder="Email Address" required>
+                            <label for="email">Email Address</label>
+                        </div>
+                    </div>
+
+                    <div class="col-12">
+                        <div class="form-floating">
+                            <select class="form-select" id="position" required>
+                                <option value="" disabled selected>-- Select a Position --</option>
+                                <option value="Accountant">Accountant</option>
+                                <option value="Relationship Officer">Relationship Officer</option>
+                                <option value="Admin Officer">Admin Officer</option>
+                                <option value="Office Boy">Office Boy</option>
+                            </select>
+                            <label for="position">Position Applying For</label>
+                        </div>
+                    </div>
+
+                    <div class="col-12">
+                        <label class="form-label">Upload CV (PDF or DOC only)</label>
+                        <input type="file" class="form-control" id="cv" accept=".pdf,.doc,.docx" required>
+                    </div>
+
+                    <div class="col-12">
+                        <label class="form-label">Upload Documents (optional)</label>
+                        <input type="file" class="form-control" id="documents" multiple>
+                    </div>
+
+                    <div class="col-12">
+                        <div class="form-floating">
+                            <textarea class="form-control" placeholder="Why do you want to join FlexTrust?" id="why" style="height: 80px" required></textarea>
+                            <label for="why">Why do you want to join FlexTrust?</label>
+                        </div>
+                    </div>
+
+                    <div class="col-12">
+                        <button class="btn btn-primary py-3 px-5" type="submit" id="submitJobBtn">Submit Application</button>
+                    </div>
+
+                </div>
+            </form>
+        </div>
+    </div>
+</div> <!-- End Form -->
+<script>
+    document.getElementById('jobForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+    
+        const fullname = document.getElementById('fullname').value;
+        const cnic = document.getElementById('cnic').value;
+        const phone = document.getElementById('phone').value;
+        const email = document.getElementById('email').value;
+        const position = document.getElementById('position').value;
+        const why = document.getElementById('why').value;
+    
+        const data = {
+            data: {
+                fullname: fullname,
+                cnic: cnic,
+                phone: phone,
+                email: email,
+                position: position,
+                why: why
+            }
+        };
+    
+        const url = "https://sheetdb.io/api/v1/t57pqlkis4dip/sheet/jobs applications";
+    
+        fetch(url, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(data)
+        })
+        .then(response => response.json())
+        .then(result => {
+            alert("Application submitted successfully!");
+            document.getElementById('jobForm').reset();
+        })
+        .catch(error => {
+            alert("Error submitting form.");
+            console.error(error);
+        });
+    });
+    </script>
+    
     
             </div>
         </div>
